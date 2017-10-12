@@ -4,53 +4,58 @@ import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
 
-public class Check
+public class FadedCircle
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Check pattern synthesis");
+		System.out.println("Ring pattern synthesis");
 		
 		BufferedImage image;
 		
 		int x_res;
 		int y_res;
 		
-		int colorBack;
-		int colorCheck;
+		int x_c;
+		int y_c;
 		
-		int checkWidth = 30;
-		
-		int whiteWidthX = 50;
-		int whiteWidthY = 50;
+		int black;
+		int white;
 		
 		int i;
 		int j;
+		
+		final int w = 20;
 		
 		x_res = 500;
 		y_res = 500;
 		
 		image = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		
-		colorBack = int2RGB(0, 0, 0);
-		colorCheck = int2RGB(255, 255, 255);
+		black = int2RGB(0, 0, 0);
+		white = int2RGB(255, 255, 255);
 		
-		int temp = 10 - (checkWidth / 10);
+		x_c = x_res/2;
+		y_c = y_res/2;
 		
 		for(i = 0; i < y_res; i++)
 			for(j = 0; j < x_res; j++)
 			{
+				double d;
+				int r;
+				double temp;
 				
-				if((i/5) % 10 < temp && (j/5) % 10 < temp)
-					image.setRGB(j, i, colorCheck);
-				else
-					image.setRGB(j, i, colorBack);
+				d = Math.sqrt((i-y_c)*(i-y_c) + (j-x_c)*(j-x_c));
 				
+				r = (int) d / w;
 				
+				temp = (int)(128*(Math.sin((Math.PI * d)/w) + 1));
+				
+				image.setRGB(j, i, int2RGB((int)temp, (int)temp, (int)temp));
 			}
 		try
 		{
-			ImageIO.write(image, "bmp", new File("check.bmp"));
-			System.out.println("Check image created successfully");
+			ImageIO.write(image, "bmp", new File("fadeC.bmp"));
+			System.out.println("Ring image created successfully");
 		}
 		catch(IOException e)
 		{
