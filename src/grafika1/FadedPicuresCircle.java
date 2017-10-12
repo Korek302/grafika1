@@ -63,7 +63,7 @@ public class FadedPicuresCircle
 				
 				temp = (int)(128*(Math.sin((Math.PI * d)/w) + 1));
 				
-				image.setRGB(j, i, int2RGB((int)temp, (int)temp, (int)temp) - colorBack);
+				image.setRGB(j, i, int2RGB((int)temp, (int)temp, (int)temp) + colorBack);
 			}
 		try
 		{
