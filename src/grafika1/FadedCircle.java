@@ -26,8 +26,8 @@ public class FadedCircle
 		
 		final int w = 20;
 		
-		x_res = 500;
-		y_res = 500;
+		x_res = 400;
+		y_res = 400;
 		
 		image = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		
@@ -48,7 +48,7 @@ public class FadedCircle
 				
 				r = (int) d / w;
 				
-				temp = (int)(127*(Math.sin((Math.PI * d)/w) + 1));
+				temp = (127*(Math.sin((Math.PI * d)/w) + 1));
 				
 				image.setRGB(j, i, int2RGB((int)temp, (int)temp, (int)temp));
 			}

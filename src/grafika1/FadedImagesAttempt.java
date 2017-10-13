@@ -4,7 +4,7 @@ import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
 
-public class FadedPicuresCircle
+public class FadedImagesAttempt
 {
 	public static void main(String[] args)
 	{
@@ -23,6 +23,9 @@ public class FadedPicuresCircle
 		int colorBack;
 		int colorFront;
 		
+		int black;
+		int white;
+		
 		int i;
 		int j;
 		
@@ -37,13 +40,16 @@ public class FadedPicuresCircle
 		
 		try
 		{
-			importedImage1 = ImageIO.read(new File("landscape1.bmp"));
-			importedImage2 = ImageIO.read(new File("landscape4.bmp"));
+			importedImage1 = ImageIO.read(new File("cat1.bmp"));
+			importedImage2 = ImageIO.read(new File("dog1.bmp"));
 		}
 		catch (IOException e)
 		{
 			System.out.println("The image cannot be loaded");
 		}
+		
+		black = int2RGB(0, 0, 0);
+		white = int2RGB(255, 255, 255);
 		
 		x_c = x_res/2;
 		y_c = y_res/2;
@@ -52,22 +58,25 @@ public class FadedPicuresCircle
 			for(j = 0; j < x_res; j++)
 			{
 				double d;
+				int r;
 				double temp;
 				colorBack = importedImage1.getRGB(j, i);
 				colorFront = importedImage2.getRGB(j, i);
 				
 				d = Math.sqrt((i-y_c)*(i-y_c) + (j-x_c)*(j-x_c));
 				
-				temp = (int)(127*(Math.sin((Math.PI * d)/w) + 1));
+				r = (int) d / w;
+				
+				temp = (127*(Math.sin((Math.PI * d)/w) + 1));
 				
 				image.setRGB(j, i, int2RGB(
-						(int)((temp/255) * (getRed(colorBack)) + ((1 - temp/255) * getRed(colorFront))), 
-						(int)((temp/255) * (getGreen(colorBack)) + ((1 - temp/255) * getGreen(colorFront))), 
-						(int)((temp/255) * (getBlue(colorBack)) + ((1 - temp/255) * getBlue(colorFront)))));
+						(int) ( (temp/255) * (getRed(colorBack)) + (1 - temp/255) * (getRed(colorFront))), 
+						(int) ( (temp/255) * (getGreen(colorBack)) + (1 - temp/255) * (getRed(colorFront)) ), 
+						(int) ( (temp/255) * (getBlue(colorBack)) + (1 - temp/255) * (getRed(colorFront)) )));
 			}
 		try
 		{
-			ImageIO.write(image, "bmp", new File("fadedPicuresCircle.bmp"));
+			ImageIO.write(image, "bmp", new File("attempt.bmp"));
 			System.out.println("Ring image created successfully");
 		}
 		catch(IOException e)
