@@ -10,7 +10,6 @@ public class CheckedImage
 	{
 		System.out.println("Check pattern synthesis");
 		
-		BufferedImage image;
 		BufferedImage importedImage;
 		
 		int x_res;
@@ -30,7 +29,6 @@ public class CheckedImage
 		x_res = 400;
 		y_res = 400;
 		
-		image = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		importedImage = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		try
 		{
@@ -51,15 +49,15 @@ public class CheckedImage
 				
 				
 				if((i/5) % 10 < 8 && (j/5) % 10 < 8)
-					image.setRGB(j, i, colorBack);
+					importedImage.setRGB(j, i, colorBack);
 				else
-					image.setRGB(j, i, colorCheck);
+					importedImage.setRGB(j, i, colorCheck);
 				
 				
 			}
 		try
 		{
-			ImageIO.write(image, "bmp", new File("checkedImage.bmp"));
+			ImageIO.write(importedImage, "bmp", new File("checkedImage.bmp"));
 			System.out.println("Check image created successfully");
 		}
 		catch(IOException e)
