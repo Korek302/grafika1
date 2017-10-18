@@ -34,7 +34,7 @@ System.out.println("Pizza pattern synthesis");
 		importedImage2 = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		try
 		{
-			importedImage1 = ImageIO.read(new File("cat1.bmp"));
+			importedImage1 = ImageIO.read(new File("cat2.bmp"));
 			importedImage2 = ImageIO.read(new File("dog1.bmp"));
 		}
 		catch (IOException e)
