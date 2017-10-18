@@ -4,34 +4,32 @@ import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
 
-public class ImageCheckMerge
+public class ImagePizzaMerge
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Check pattern synthesis");
+System.out.println("Pizza pattern synthesis");
 		
-		BufferedImage image;
 		BufferedImage importedImage1;
 		BufferedImage importedImage2;
 		
 		int x_res;
 		int y_res;
 		
-		int colorBack;
-		int colorCheck;
+		int x_c;
+		int y_c;
 		
-		int checkWidth = 30;
-		
-		int whiteWidthX = 50;
-		int whiteWidthY = 50;
+		int color1;
+		int color2;
 		
 		int i;
 		int j;
 		
+		final double w = Math.PI/8;
+		
 		x_res = 400;
 		y_res = 400;
 		
-		image = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		importedImage1 = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		importedImage2 = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		try
@@ -44,26 +42,38 @@ public class ImageCheckMerge
 			System.out.println("The image cannot be loaded");
 		}
 		
-		colorBack = int2RGB(255, 255, 255);
-		colorCheck = int2RGB(0, 0, 0);
+		x_c = x_res/2;
+		y_c = y_res/2;
 		
 		for(i = 0; i < y_res; i++)
 			for(j = 0; j < x_res; j++)
 			{
-				colorBack = importedImage1.getRGB(j, i);
-				colorCheck = importedImage2.getRGB(j, i);
+				double d;
+				int r;
+				double alpha;
 				
-				if((i/5) % 10 < 7 && (j/5) % 10 < 7)
-					image.setRGB(j, i, colorBack);
+				color1 = importedImage1.getRGB(j, i);
+				color2 = importedImage2.getRGB(j, i);
+				
+				d = Math.sqrt((i-y_c)*(i-y_c) + (j-x_c)*(j-x_c));
+				
+				alpha = Math.asin(Math.abs(x_c - j)/d);
+				
+				r = (int) (alpha / w);
+				
+				if(r % 2 == 0)
+					if((j > x_c && i > y_c) || (j < x_c && i < y_c))
+						;
+					else
+						importedImage1.setRGB(j, i, color2);
 				else
-					image.setRGB(j, i, colorCheck);
-				
-				
+					if((j > x_c && i > y_c) || (j < x_c && i < y_c))
+						importedImage1.setRGB(j, i, color2);
 			}
 		try
 		{
-			ImageIO.write(image, "bmp", new File("imageCheckMerge.bmp"));
-			System.out.println("Check image created successfully");
+			ImageIO.write(importedImage1, "bmp", new File("imagePizzaMerge.bmp"));
+			System.out.println("Pizza image created successfully");
 		}
 		catch(IOException e)
 		{

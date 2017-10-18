@@ -18,22 +18,21 @@ public class Check
 		int colorBack;
 		int colorCheck;
 		
-		int checkWidth = 30;
-		
-		int whiteWidthX = 50;
-		int whiteWidthY = 50;
+		int checkWidth;
 		
 		int i;
 		int j;
 		
-		x_res = 500;
-		y_res = 500;
+		checkWidth = 30;
+		
+		x_res = 400;
+		y_res = 400;
 		
 		image = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		
 		colorBack = int2RGB(0, 0, 0);
 		colorCheck = int2RGB(255, 255, 255);
-		
+
 		int temp = 10 - (checkWidth / 10);
 		
 		for(i = 0; i < y_res; i++)

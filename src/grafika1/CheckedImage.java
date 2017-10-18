@@ -20,9 +20,6 @@ public class CheckedImage
 		
 		int checkWidth = 30;
 		
-		int whiteWidthX = 50;
-		int whiteWidthY = 50;
-		
 		int i;
 		int j;
 		
@@ -42,13 +39,15 @@ public class CheckedImage
 		colorBack = int2RGB(255, 255, 255);
 		colorCheck = int2RGB(0, 0, 0);
 		
+		int temp = 10 - (checkWidth / 10);
+		
 		for(i = 0; i < y_res; i++)
 			for(j = 0; j < x_res; j++)
 			{
 				colorBack = importedImage.getRGB(j, i);
 				
 				
-				if((i/5) % 10 < 8 && (j/5) % 10 < 8)
+				if((i/5) % 10 < temp && (j/5) % 10 < temp)
 					importedImage.setRGB(j, i, colorBack);
 				else
 					importedImage.setRGB(j, i, colorCheck);

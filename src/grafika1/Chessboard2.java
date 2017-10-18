@@ -101,13 +101,13 @@ public class Chessboard2
 	{
 		double angleRad = Math.PI/180 * angle;
 		
-		return (int) ((x1 - x2)*Math.cos(angleRad) - (y1 - y2)*Math.sin(angleRad) + x2);
+		return (int) Math.round(((x1 - x2)*Math.cos(angleRad) - (y1 - y2)*Math.sin(angleRad) + x2));
 	}
 	
 	static int rotate45y(int x1, int y1, int x2, int y2, int angle)
 	{
 		double angleRad = Math.PI/180 * angle;
 		
-		return (int) ((x1 - x2)*Math.sin(angleRad) + (y1 - y2)*Math.cos(angleRad) + y2);
+		return (int) Math.round(((x1 - x2)*Math.sin(angleRad) + (y1 - y2)*Math.cos(angleRad) + y2));
 	}
 }

@@ -44,12 +44,14 @@ public class GettingBiggerCircle
 				int r = 0;
 				
 				d = Math.sqrt((i-y_c)*(i-y_c) + (j-x_c)*(j-x_c));
-				w = d;//(Math.log(d)); 
+				
+				w = Math.log(d) + 0.03 * d; 
+				
 				if(w < 1)
 				{
 					w = 1;
 				}
-				r = (int) ((int) d / w);
+				r = (int) ( d / w);
 				
 				
 				if(r % 2 == 0)

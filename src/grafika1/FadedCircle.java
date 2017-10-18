@@ -18,9 +18,6 @@ public class FadedCircle
 		int x_c;
 		int y_c;
 		
-		int black;
-		int white;
-		
 		int i;
 		int j;
 		
@@ -31,9 +28,6 @@ public class FadedCircle
 		
 		image = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		
-		black = int2RGB(0, 0, 0);
-		white = int2RGB(255, 255, 255);
-		
 		x_c = x_res/2;
 		y_c = y_res/2;
 		
@@ -41,12 +35,9 @@ public class FadedCircle
 			for(j = 0; j < x_res; j++)
 			{
 				double d;
-				int r;
 				double temp;
 				
 				d = Math.sqrt((i-y_c)*(i-y_c) + (j-x_c)*(j-x_c));
-				
-				r = (int) d / w;
 				
 				temp = (127*(Math.sin((Math.PI * d)/w) + 1));
 				

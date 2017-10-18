@@ -37,8 +37,8 @@ public class FadedPicuresCircle
 		
 		try
 		{
-			importedImage1 = ImageIO.read(new File("cat1.bmp"));
-			importedImage2 = ImageIO.read(new File("dog1.bmp"));
+			importedImage1 = ImageIO.read(new File("landscape1.bmp"));
+			importedImage2 = ImageIO.read(new File("landscape4.bmp"));
 		}
 		catch (IOException e)
 		{
