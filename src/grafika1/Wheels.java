@@ -29,7 +29,7 @@ public class Wheels
 		
 		final int squareW = 80;
 		
-		final int w = 5;
+		final double w = 2.5;
 		
 		x_res = 400;
 		y_res = 400;
@@ -55,8 +55,7 @@ public class Wheels
 						d = Math.sqrt(((squareW*m + i)-y_c)*((squareW*m + i)-y_c) 
 								+ ((squareW*n + j)-x_c)*((squareW*n + j)-x_c));
 						
-						
-						if(d < squareW/2.5)
+						if(d < squareW/w)
 							image.setRGB(squareW*n + j, squareW*m + i, black);
 						else
 							image.setRGB(squareW*n + j, squareW*m + i, gray);
