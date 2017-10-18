@@ -8,7 +8,7 @@ public class Pizza
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Ring pattern synthesis");
+		System.out.println("Pizza pattern synthesis");
 		
 		BufferedImage image;
 		
@@ -64,7 +64,7 @@ public class Pizza
 		try
 		{
 			ImageIO.write(image, "bmp", new File("pizza.bmp"));
-			System.out.println("Ring image created successfully");
+			System.out.println("Pizza image created successfully");
 		}
 		catch(IOException e)
 		{

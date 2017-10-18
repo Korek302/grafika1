@@ -24,10 +24,10 @@ public class GettingBiggerCircle
 		int i;
 		int j;
 		
-		int w = 10;
+		double w;
 		
-		x_res = 500;
-		y_res = 500;
+		x_res = 400;
+		y_res = 400;
 		
 		image = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		
@@ -41,11 +41,16 @@ public class GettingBiggerCircle
 			for(j = 0; j < x_res; j++)
 			{
 				double d;
-				int r;
+				int r = 0;
 				
 				d = Math.sqrt((i-y_c)*(i-y_c) + (j-x_c)*(j-x_c));
-
-				r = (int) d / w;
+				w = d;//(Math.log(d)); 
+				if(w < 1)
+				{
+					w = 1;
+				}
+				r = (int) ((int) d / w);
+				
 				
 				if(r % 2 == 0)
 					image.setRGB(j, i, black);

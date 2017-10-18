@@ -8,7 +8,7 @@ public class Wheels
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Ring pattern synthesis");
+		System.out.println("Wheels pattern synthesis");
 		
 		BufferedImage image;
 		
@@ -64,7 +64,7 @@ public class Wheels
 		try
 		{
 			ImageIO.write(image, "bmp", new File("wheels.bmp"));
-			System.out.println("Ring image created successfully");
+			System.out.println("Wheels image created successfully");
 		}
 		catch(IOException e)
 		{

@@ -21,8 +21,10 @@ public class Chessboard1
 		int i;
 		int j;
 		
-		x_res = 500;
-		y_res = 500;
+		int w = 20;
+		
+		x_res = 400;
+		y_res = 400;
 		
 		image = new BufferedImage(x_res, y_res, BufferedImage.TYPE_INT_RGB);
 		
@@ -32,16 +34,16 @@ public class Chessboard1
 		for(i = 0; i < y_res; i++)
 			for(j = 0; j < x_res; j++)
 			{
-				if((i/10) % 10 < 5)
+				if((i/(w/5)) % 10 < 5)
 				{
-					if((j/10) % 10 < 5)
+					if((j/(w/5)) % 10 < 5)
 						image.setRGB(j, i, black);
 					else
 						image.setRGB(j, i, white);
 				}
 				else
 				{
-					if((j/10) % 10 > 4)
+					if((j/(w/5)) % 10 > 4)
 						image.setRGB(j, i, black);
 					else
 						image.setRGB(j, i, white);
