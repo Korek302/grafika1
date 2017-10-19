@@ -21,7 +21,7 @@ public class Chessboard1
 		int i;
 		int j;
 		
-		int w = 20;
+		int w = 50;
 		
 		x_res = 400;
 		y_res = 400;

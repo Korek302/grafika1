@@ -25,7 +25,7 @@ public class Chessboard2
 		int i;
 		int j;
 		
-		int angle = 45;
+		int angle = 30;
 		
 		int w = 50;
 		
@@ -67,7 +67,10 @@ public class Chessboard2
 			{
 				try
 				{
-					image2.setRGB(rotate45x(j, i, x_res1/2, y_res1/2, angle), rotate45y(j, i, x_res1/2, y_res1/2, angle), image.getRGB(j, i));
+					image2.setRGB(j, 
+							i, 
+							image.getRGB(rotate45x(j, i, x_res1/2, y_res1/2, angle), 
+									rotate45y(j, i, x_res1/2, y_res1/2, angle)));
 				}
 				catch(ArrayIndexOutOfBoundsException e)
 				{
